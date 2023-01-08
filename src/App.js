@@ -1,11 +1,12 @@
 import './App.css'
+import Slides from './Slides.js'
 
 function App() {
   return (
     <div className="App">
-      <h1>This is Sparta!</h1>
+      <Slides />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
