@@ -8,15 +8,11 @@ function Slides() {
     if (window.presentation) {
       document.addEventListener('keydown', handleSlideNavigation)
     } else {
-      console.log("REMOVING LISTENER")
       document.removeEventListener('keydown', handleSlideNavigation)
     }
   }, [presentationSwitched])
 
   const handleSlideNavigation = useCallback((event) => {
-    console.log("HERE", window.presentation)
-    // event.stopPropagation();
-    // event.preventDefault();
     if (window.presentation) {
       if (event.key === 'ArrowDown') {
         setPosition(prevPosition => {
@@ -59,13 +55,13 @@ function Slides() {
         }
         return 1
       })
-      document.body.style.overflowY = 'hidden';
-      document.body.style.height = '100%';
+      document.body.style.overflowY = 'hidden'
+      document.body.style.height = '100%'
     } else if (event.key === 'Escape') {
-      console.log("Escape")
       setPresentation(false)
-      document.body.style.overflowY = 'unset';
-      document.body.style.height = 'unset';
+      window.presentation = false
+      document.body.style.overflowY = 'unset'
+      document.body.style.height = 'unset'
     }
   }, [])
 
